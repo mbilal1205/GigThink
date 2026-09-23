@@ -1,19 +1,20 @@
 // lib/seo/site-config.ts
+
 export const siteConfig = {
-  // Brand
-  name: "GigThink",              // 👈 YE ZAROORI HAI — 15+ errors yahan se thay
-  shortName: "GigThink",         // 👈 Ye bhi rakhna (manifest ke liye)
+  // Brand Configuration
+  name: "GigThink",
+  shortName: "GigThink",
   legalName: "CodEarn",
   brandLine: "GigThink by CodEarn",
   tagline: "Win More Clients. Close More Deals.",
   description:
     "GigThink is the income operating system for skilled people. Turn your skills into income with AI-powered proposals, client CRM, contracts, invoices, and opportunity discovery.",
 
-  // URLs
+  // Platform URLs
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://gigthink.com",
-  appUrl: process.env.NEXT_PUBLIC_APP_URL ?? "https://app.gigthink.com",
+  appUrl: process.env.NEXT_PUBLIC_APP_URL ?? "https://gigthink.com",
 
-  // Locale + Social
+  // Locale & Discovery
   locale: "en_US",
   twitter: "@codearn",
   keywords: [
@@ -30,22 +31,30 @@ export const siteConfig = {
     "win freelance clients",
     "AI sales coach for freelancers",
   ],
+  
+  // Ownership & Identity
   authors: [{ name: "CodEarn Tech", url: "https://codearn.com" }],
   creator: "CodEarn Tech",
   publisher: "CodEarn Tech",
 
+  // Social Connections
   social: {
-    twitter: "https://twitter.com/codearn",
-    linkedin: "https://www.linkedin.com/company/codearn",
-    github: "https://github.com/codearn",
+    twitter: "https://twitter.com",
+    linkedin: "https://linkedin.com",
+    github: "https://github.com",
   },
+  
+  // Communication
   contact: {
     email: "hello@gigthink.com",
     support: "support@gigthink.com",
   },
-} as const;
 
-export type SiteConfig = typeof siteConfig;
+  // Webmaster Verification
+  verification: {
+    google: "_6B9t8pjp5mrok5gIYnPSFKUxTmO_A0xDA4ZEA6sWy0",
+  },
+} as const;
 
 /** App subdomain redirect helpers */
 export const appRoutes = {
@@ -55,3 +64,8 @@ export const appRoutes = {
   forgotPassword: `${siteConfig.appUrl}/forgot-password`,
   billing: `${siteConfig.appUrl}/billing`,
 } as const;
+
+
+
+
+// "google-site-verification=_6B9t8pjp5mrok5gIYnPSFKUxTmO_A0xDA4ZEA6sWy0"
