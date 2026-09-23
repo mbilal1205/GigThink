@@ -15,6 +15,8 @@ import { buildMetadata } from "@/lib/seo/metadata";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbJsonLd, faqJsonLd } from "@/lib/seo/json-ld";
 import { siteConfig } from "@/lib/seo/site-config";
+import Navbar from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 // ==========================================
 // 1. HOMEPAGE METADATA
@@ -77,7 +79,7 @@ export default function Home() {
           faqJsonLd(homeFaqs),
         ]}
       />
-
+      <Navbar/>
       <HeroSection />
       <TrustedBy />
       <AIProposalDemo />
@@ -89,6 +91,7 @@ export default function Home() {
       <FAQ />
       <FinalCTA />
       <GigThinkChat />
+      <Footer/>
     </>
   );
 }
