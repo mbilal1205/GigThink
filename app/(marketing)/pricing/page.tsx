@@ -1,128 +1,76 @@
-"use client";
+// app/(marketing)/pricing/page.tsx
+import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo/metadata";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { faqJsonLd, breadcrumbJsonLd } from "@/lib/seo/json-ld";
+import PricingClient from "../../../components/Pricing/PricingClient";
 
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
-import { getSupabaseBrowserClient } from "@/utils/supabase/client";
-import { initializePaddle, Paddle, CheckoutEventNames } from "@paddle/paddle-js";
-import { toast } from "sonner"; // 👈 Sonner import kiya
+// ==========================================
+// 1. SEO METADATA (Server-side — Google crawlable)
+// ==========================================
+export const metadata: Metadata = buildMetadata({
+  title: "Pricing — Free, Pro & Agency Plans",
+  description:
+    "Simple, transparent pricing. Start free with 5 proposals per month. Upgrade to Pro for unlimited AI proposals, client CRM, contracts, and invoices.",
+  path: "/pricing",
+  keywords: [
+    "freelancer software pricing",
+    "AI proposal pricing",
+    "freelance CRM cost",
+    "Upwork tool pricing",
+    "GigThink pricing",
+  ],
+});
 
-// Import Split Components
-import PricingHero from "../../../components/Pricing/PricingHeader";
-import PricingPlans from "../../../components/Pricing/PricingPlans";
-import PricingComparison from "../../../components/Pricing/PriceComparison";
+// ==========================================
+// 2. FAQ DATA — used for both JSON-LD + optional UI
+// ==========================================
+const pricingFaqs = [
+  {
+    q: "Can I use GigThink for free?",
+    a: "Yes. The Free plan includes 5 proposals per month with basic templates and basic AI features. No credit card required.",
+  },
+  {
+    q: "What is included in the Pro plan?",
+    a: "Pro includes unlimited AI proposals, unlimited AI usage, client CRM, contracts, invoices, analytics, and premium templates.",
+  },
+  {
+    q: "Do you offer an Agency plan?",
+    a: "Yes. Agency plans include multiple team members, shared templates, a team workspace, team analytics, and central client management.",
+  },
+  {
+    q: "Can I cancel my subscription anytime?",
+    a: "Absolutely. You can cancel anytime from your billing settings. No long-term contracts, no cancellation fees.",
+  },
+  {
+    q: "Which payment methods do you accept?",
+    a: "We accept all major credit and debit cards, plus local payment methods via our secure payment processor.",
+  },
+  {
+    q: "Do you offer refunds?",
+    a: "Yes. We offer a 7-day money-back guarantee on first-time Pro and Agency subscriptions. Contact support to request a refund.",
+  },
+];
 
-const PRO_MONTHLY_PRICE_ID = process.env.NEXT_PUBLIC_PADDLE_PRICE_ID!;
-
+// ==========================================
+// 3. PAGE (Server Component — wraps client)
+// ==========================================
 export default function PricingPage() {
-  const router = useRouter();
-  const [paddle, setPaddle] = useState<Paddle | undefined>(undefined);
-  const [loading, setLoading] = useState(false);
-  const [user, setUser] = useState<any>(null);
-  const [checkingAuth, setCheckingAuth] = useState(true);
-  const [isYearly, setIsYearly] = useState(false);
-
-  /* ── Auth + Paddle Init (PRESERVED UNCHANGED LOGIC) ── */
-  useEffect(() => {
-    let isMounted = true;
-
-    async function verifyUserAndInitializePaddle() {
-      const supabase = getSupabaseBrowserClient();
-      try {
-        const {
-          data: { user: verifiedUser },
-          error: authError,
-        } = await supabase.auth.getUser();
-        if (authError) {
-          // 👈 Console error ko sonner toast mein badla
-          toast.error(`Verification failed: ${authError.message}`);
-        }
-        if (isMounted && verifiedUser) setUser(verifiedUser);
-      } catch (err) {
-        toast.error("Database authentication sync exception occurred.");
-      } finally {
-        if (isMounted) setCheckingAuth(false);
-      }
-    }
-
-    verifyUserAndInitializePaddle();
-
-    const token = process.env.NEXT_PUBLIC_PADDLE_CLIENT_TOKEN;
-    if (token) {
-      initializePaddle({
-        environment: "sandbox",
-        token: token,
-        eventCallback: (event) => {
-          if (!isMounted) return;
-          if (event.name === ("checkout.closed" as CheckoutEventNames)) setLoading(false);
-          if (event.name === ("checkout.error" as CheckoutEventNames)) {
-            // 👈 Checkout error par toast dikhayega
-            toast.error("Paddle Checkout encountered an error.");
-            setLoading(false);
-          }
-        },
-      }).then((paddleInstance) => {
-        if (isMounted && paddleInstance) setPaddle(paddleInstance);
-      });
-    } else {
-      toast.error("Paddle configuration error: Client token missing.");
-    }
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
-
-  /* ── Subscribe Handler (PRESERVED UNCHANGED LOGIC) ── */
-  const handleSubscribe = async (priceId: string) => {
-    if (!user) {
-      router.push("/auth/login");
-      return;
-    }
-    if (!paddle) {
-      toast.error("Payment system is loading. Please try again in a moment.");
-      return;
-    }
-    if (!priceId) {
-      toast.error("Invalid product configuration: Price ID missing.");
-      return;
-    }
-
-    setLoading(true);
-    paddle.Checkout.open({
-      items: [{ priceId, quantity: 1 }],
-      customer: { email: user.email },
-      customData: { userId: user.id },
-      settings: { displayMode: "overlay", theme: "dark", locale: "en" },
-    });
-  };
-
-  const monthlyPrice = 9.9;
-  const yearlyPrice = 7.92;
-  const displayPrice = isYearly ? yearlyPrice : monthlyPrice;
-
   return (
-    <div className="min-h-screen w-full bg-white text-[#000000] font-sans antialiased selection:bg-[#0091ff]/20">
-      {/* 1. HERO COMPONENT */}
-      <PricingHero />
+    <>
+      {/* Structured data — FAQ rich snippet + breadcrumb */}
+      <JsonLd
+        data={[
+          breadcrumbJsonLd([
+            { name: "Home", url: "/" },
+            { name: "Pricing", url: "/pricing" },
+          ]),
+          faqJsonLd(pricingFaqs),
+        ]}
+      />
 
-      {/* 2. CHECKOUT PLANS COMPONENT */}
-      <section className="relative pb-20 sm:pb-28">
-        <PricingPlans
-          isYearly={isYearly}
-          setIsYearly={setIsYearly}
-          displayPrice={displayPrice}
-          yearlyPrice={yearlyPrice}
-          handleSubscribe={handleSubscribe}
-          loading={loading}
-          checkingAuth={checkingAuth}
-          user={user}
-          paddle={paddle}
-          priceId={PRO_MONTHLY_PRICE_ID}
-        />
-
-        {/* 3. COMPARISON COMPONENT (Matrix Table + Benefits + FAQ + CTA) */}
-        <PricingComparison />
-      </section>
-    </div>
+      {/* Client-side interactive content */}
+      <PricingClient />
+    </>
   );
 }

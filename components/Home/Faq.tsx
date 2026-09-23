@@ -163,7 +163,7 @@ export default function FAQ() {
             </div>
             <div className="flex items-center gap-3 shrink-0">
               <a
-                href="mailto:hello@gigthink.ai"
+                href="mailto:hello@gigthink.com"
                 className="inline-flex items-center justify-center h-10 px-5 rounded-xl text-sm font-bold bg-primary/10 text-primary border border-primary/20 hover:bg-primary hover:text-primary-foreground transition-all shadow-sm"
               >
                 Chat with Support

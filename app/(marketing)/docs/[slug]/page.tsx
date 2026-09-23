@@ -1,26 +1,41 @@
+// app/(marketing)/docs/[slug]/page.tsx
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getDocBySlug, getAdjacentDocs, getAllDocs } from "@/data/documentation";
+import {
+  getDocBySlug,
+  getAdjacentDocs,
+  getAllDocs,
+} from "@/data/documentation";
 import DocsArticleContent from "@/components/docs-sections/DocsArticleContent";
 import DocsTableOfContents from "@/components/docs-sections/DocsTableOfContents";
 import DocsArticleNav from "@/components/docs-sections/DocsArticleNav";
 import { Badge } from "@/components/ui/badge";
+import { buildMetadata } from "@/lib/seo/metadata";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbJsonLd } from "@/lib/seo/json-ld";
+import { siteConfig } from "@/lib/seo/site-config";
+
+type Params = { params: Promise<{ slug: string }> };
 
 export async function generateStaticParams() {
   const docs = getAllDocs();
-  return docs.map(doc => ({ slug: doc.slug }));
+  return docs.map((doc) => ({ slug: doc.slug }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const doc = getDocBySlug(slug);
   if (!doc) return {};
-  return {
+
+  return buildMetadata({
     title: doc.seo.title,
     description: doc.seo.description,
-  };
+    path: `/docs/${slug}`,
+    type: "article",
+  });
 }
 
-export default async function DocArticlePage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function DocArticlePage({ params }: Params) {
   const { slug } = await params;
   const doc = getDocBySlug(slug);
   if (!doc) notFound();
@@ -29,8 +44,37 @@ export default async function DocArticlePage({ params }: { params: Promise<{ slu
 
   return (
     <div>
+      <JsonLd
+        data={[
+          // TechArticle schema for documentation
+          {
+            "@context": "https://schema.org",
+            "@type": "TechArticle",
+            headline: doc.title,
+            description: doc.description,
+            url: `${siteConfig.url}/docs/${slug}`,
+            publisher: {
+              "@type": "Organization",
+              name: siteConfig.name,
+              logo: {
+                "@type": "ImageObject",
+                url: `${siteConfig.url}/logo.png`,
+              },
+            },
+          },
+          breadcrumbJsonLd([
+            { name: "Home", url: "/" },
+            { name: "Docs", url: "/docs" },
+            { name: doc.title, url: `/docs/${slug}` },
+          ]),
+        ]}
+      />
+
       <div className="mb-6">
-        <Badge variant="outline" className="text-primary border-primary/30 bg-primary/5">
+        <Badge
+          variant="outline"
+          className="text-primary border-primary/30 bg-primary/5"
+        >
           {doc.category}
         </Badge>
       </div>

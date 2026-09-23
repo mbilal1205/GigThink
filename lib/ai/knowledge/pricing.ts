@@ -18,5 +18,5 @@ export interface PricingModel {
 export const PricingBase: Record<string, PricingModel> = {
   hourly: hourlyPricing,
   fixed: fixedPricing,
-  enterprise: enterprisePricing
+  enterprise: enterprisePricing as unknown as PricingModel
 };
