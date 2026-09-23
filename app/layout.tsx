@@ -1,6 +1,7 @@
 // app/layout.tsx
 import type { Metadata, Viewport } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
+import Script from "next/script";
 import { ThemeProvider } from "next-themes";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "sonner";
@@ -54,11 +55,9 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   manifest: "/manifest.webmanifest",
-  // Verification (add your actual codes when ready)
+  // Google Search Console verification code added
   verification: {
-    // google: "your-google-search-console-code",
-    // yandex: "your-yandex-code",
-    // other: { "msvalidate.01": "your-bing-code" },
+    google: "_6B9t8pjp5mrok5gIYnPSFKUxTmO_A0xDA4ZEA6sWy0",
   },
 };
 
@@ -91,6 +90,25 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        {/* Google tag (gtag.js) using Next.js Script component */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-PEE1J17J0T"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-PEE1J17J0T');
+            `,
+          }}
+        />
+
         {/* Global structured data — Organization + WebSite + App */}
         <JsonLd
           data={[organizationJsonLd(), websiteJsonLd(), softwareAppJsonLd()]}
