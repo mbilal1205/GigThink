@@ -58,7 +58,7 @@ export const siteConfig = {
 
 /** App subdomain redirect helpers */
 export const appRoutes = {
-  login: `${siteConfig.appUrl}https://app.gigthink.comhttps://app.gigthink.com/auth/login`,
+  login: `${siteConfig.appUrl}/app.gigthink.com/auth/login`,
   signup: `${siteConfig.appUrl}/signup`,
   dashboard: `${siteConfig.appUrl}/dashboard`,
   forgotPassword: `${siteConfig.appUrl}/forgot-password`,

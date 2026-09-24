@@ -43,8 +43,8 @@ export default function ProfilePage() {
       const { data: { session }, error: authError } = await supabase.auth.getSession();
       
       if (authError || !session || !session.user) {
-        console.warn("⚠️ Session verification deferred or missing. Redirecting user to gateway...");
-        router.push("https://app.gigthink.comhttps://app.gigthink.com/auth/login"); 
+        console.warn("âš ï¸ Session verification deferred or missing. Redirecting user to gateway...");
+        router.push("/app.gigthink.com/auth/login"); 
         return;
       }
 
@@ -84,7 +84,7 @@ export default function ProfilePage() {
         setEditedName("New User");
       }
     } catch (err: any) {
-      console.error("❌ Profile Fetch Exception Catch Block:", err.message);
+      console.error("âŒ Profile Fetch Exception Catch Block:", err.message);
       setStatusMessage({ type: "error", text: "Unable to sync profile credentials with database." });
     } finally {
       setLoading(false);
@@ -117,7 +117,7 @@ export default function ProfilePage() {
 
   const handleSignOut = async () => {
     await supabase.auth.signOut();
-    router.push("https://app.gigthink.comhttps://app.gigthink.com/auth/login");
+    router.push("/app.gigthink.com/auth/login");
   };
 
   if (loading) {

@@ -126,7 +126,7 @@ export default function HeroSection() {
               variants={itemVariants}
               className="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-1"
             >
-              <Link href="https://app.gigthink.comhttps://app.gigthink.com/auth/login">
+              <Link href="/app.gigthink.com/auth/login">
                 <Button
                   size="lg"
                   className="h-14 px-8 rounded-xl text-base font-bold bg-foreground text-background hover:bg-foreground/90 shadow-lg shadow-foreground/10 transition-all hover:scale-[1.02] hover:shadow-xl"
@@ -145,7 +145,7 @@ export default function HeroSection() {
             {/* Bottom Feature Tags */}
             <motion.div variants={itemVariants} className="pt-4 w-full">
               <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-foreground/70 mb-3">
-                Get 400% more replies • Customize your workflow
+                Get 400% more replies â€¢ Customize your workflow
               </p>
               <div className="flex flex-wrap gap-2">
                 {featureTags.map((tag, i) => (
@@ -175,7 +175,7 @@ export default function HeroSection() {
               {/* Video Container with rounded corners */}
               <div className="relative w-full h-full rounded-2xl lg:rounded-l-3xl overflow-hidden">
 
-                {/* 🎥 VIDEO PLAYER */}
+                {/* ðŸŽ¥ VIDEO PLAYER */}
                 <video
                   src="/your-app-working.mp4"
                   autoPlay
@@ -187,23 +187,23 @@ export default function HeroSection() {
                   className="w-full h-full object-cover m-0 p-0 border-none outline-none z-0 pointer-events-none select-none"
                 />
 
-                {/* ═══════════════════════════════════════════════════ */}
-                {/* SEAMLESS FADE OVERLAYS — Top, Left, Bottom         */}
-                {/* ═══════════════════════════════════════════════════ */}
+                {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+                {/* SEAMLESS FADE OVERLAYS â€” Top, Left, Bottom         */}
+                {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
 
-                {/* LEFT FADE — Strongest (blends into white bg) */}
+                {/* LEFT FADE â€” Strongest (blends into white bg) */}
                 <div className="absolute inset-y-0 left-0 w-[25%] sm:w-[30%] lg:w-[35%] bg-gradient-to-r from-background via-background/90 to-transparent z-20 pointer-events-none" />
 
-                {/* TOP FADE — blends top edge */}
+                {/* TOP FADE â€” blends top edge */}
                 <div className="absolute inset-x-0 top-0 h-[20%] sm:h-[18%] lg:h-[15%] bg-gradient-to-b from-background via-background/80 to-transparent z-20 pointer-events-none" />
 
-                {/* BOTTOM FADE — blends bottom edge */}
+                {/* BOTTOM FADE â€” blends bottom edge */}
                 <div className="absolute inset-x-0 bottom-0 h-[20%] sm:h-[18%] lg:h-[15%] bg-gradient-to-t from-background via-background/80 to-transparent z-20 pointer-events-none" />
 
-                {/* RIGHT FADE — subtle (optional, for rounded corner feel) */}
+                {/* RIGHT FADE â€” subtle (optional, for rounded corner feel) */}
                 <div className="absolute inset-y-0 right-0 w-[8%] bg-gradient-to-l from-background/40 to-transparent z-20 pointer-events-none hidden lg:block" />
 
-                {/* CORNER RADIAL FADES — for ultra-smooth corners */}
+                {/* CORNER RADIAL FADES â€” for ultra-smooth corners */}
                 <div className="absolute top-0 left-0 w-[30%] h-[25%] bg-gradient-to-br from-background via-background/70 to-transparent z-20 pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-[30%] h-[25%] bg-gradient-to-tr from-background via-background/70 to-transparent z-20 pointer-events-none" />
 

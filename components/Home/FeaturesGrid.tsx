@@ -16,9 +16,9 @@ import {
   Layout, Camera, Code, Command, Box, Maximize
 } from "lucide-react";
 
-// ═══════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 // 4 CENTER CORE FEATURES (Medium Size, Glowing Effects)
-// ═══════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 const heroFeatures = [
   {
     id: "brain",
@@ -54,9 +54,9 @@ const heroFeatures = [
   },
 ];
 
-// ═══════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 // DENSE SURROUNDING TOOLS (48 Total for "Bhara Bhara" Look)
-// ═══════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 const topFeatures = [
   { name: "Live Leads", icon: Bell },
   { name: "Spam Shield", icon: ShieldCheck },
@@ -154,9 +154,9 @@ export default function FeaturesGrid() {
         </motion.div>
       </div>
 
-      {/* ═══════════════════════════════════════════════════════════════ */}
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       {/* SEAMLESS FADED GRID CANVAS                                      */}
-      {/* ═══════════════════════════════════════════════════════════════ */}
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <div className="relative w-full overflow-hidden flex justify-center">
 
         {/* 4-Sided Smooth Radial Fade Mask (Top, Bottom, Left, Right) */}
@@ -164,14 +164,14 @@ export default function FeaturesGrid() {
 
           <div className="w-full border-t border-l border-border/15">
 
-            {/* ─── TOP WALL (12 items) ─── */}
+            {/* â”€â”€â”€ TOP WALL (12 items) â”€â”€â”€ */}
             <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-12">
               {topFeatures.map((item, idx) => (
                 <GridTile key={`top-${idx}`} name={item.name} Icon={item.icon} />
               ))}
             </div>
 
-            {/* ─── MIDDLE SECTION: Left (12) + Center (4) + Right (12) ─── */}
+            {/* â”€â”€â”€ MIDDLE SECTION: Left (12) + Center (4) + Right (12) â”€â”€â”€ */}
             <div className="grid grid-cols-1 lg:grid-cols-12">
 
               {/* Left side wall (Desktop only: 3 cols x 4 rows) */}
@@ -194,7 +194,7 @@ export default function FeaturesGrid() {
                       transition={{ delay: i * 0.1, duration: 0.4 }}
                       className="border-r border-b border-border/15 bg-card/10 hover:bg-card/40 transition-all duration-500 relative group overflow-hidden"
                     >
-                      <Link href="https://app.gigthink.comhttps://app.gigthink.com/auth/login" className="flex flex-col justify-between h-full p-5 sm:p-6 lg:p-7 gap-5 cursor-pointer min-h-[180px] sm:min-h-[190px]">
+                      <Link href="/app.gigthink.com/auth/login" className="flex flex-col justify-between h-full p-5 sm:p-6 lg:p-7 gap-5 cursor-pointer min-h-[180px] sm:min-h-[190px]">
                         
                         {/* Hover Gradient Glow */}
                         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
@@ -243,7 +243,7 @@ export default function FeaturesGrid() {
 
             </div>
 
-            {/* ─── BOTTOM WALL (12 items) ─── */}
+            {/* â”€â”€â”€ BOTTOM WALL (12 items) â”€â”€â”€ */}
             <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-12">
               {bottomFeatures.map((item, idx) => (
                 <GridTile key={`bottom-${idx}`} name={item.name} Icon={item.icon} />
@@ -258,12 +258,12 @@ export default function FeaturesGrid() {
   );
 }
 
-// ═══════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 // SMALL GRID TILE (Jor Jor Kar fit honay wala)
-// ═══════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 function GridTile({ name, Icon }: { name: string; Icon: React.ElementType }) {
   return (
-    <Link href="https://app.gigthink.comhttps://app.gigthink.com/auth/login" className="block h-full">
+    <Link href="/app.gigthink.com/auth/login" className="block h-full">
       <div
         className="group relative p-3 sm:p-4 border-r border-b border-border/15 bg-card/5 hover:bg-card/80 hover:z-20 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover:border-primary/30 flex flex-col items-center justify-center text-center gap-2 cursor-pointer h-full min-h-[90px] sm:min-h-[95px]"
       >

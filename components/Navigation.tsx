@@ -429,7 +429,7 @@ export default function Navbar() {
               {/* Mobile CTA */}
               <div className="pt-4 space-y-3">
                 <Link
-                  href="/authhttps://app.gigthink.comhttps://app.gigthink.com/auth/login"
+                  href="/auth/app.gigthink.com/auth/login"
                   onClick={() => setMobileOpen(false)}
                   className="block text-center rounded-xl bg-muted py-3.5 text-[15px] font-bold text-foreground transition-colors hover:bg-muted/80"
                 >
