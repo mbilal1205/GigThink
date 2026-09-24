@@ -33,7 +33,7 @@ export const siteConfig = {
   ],
   
   // Ownership & Identity
-  authors: [{ name: "CodEarn Tech", url: "https://codearn.com" }],
+  authors: [{ name: "CodEarn Tech", url: "https://codearntech.cloud" }],
   creator: "CodEarn Tech",
   publisher: "CodEarn Tech",
 
@@ -58,9 +58,9 @@ export const siteConfig = {
 
 /** App subdomain redirect helpers */
 export const appRoutes = {
-  login: `${siteConfig.appUrl}/auth/login`, // 👈 Fixed: Ab yeh perfect format "https://app.gigthink.com/auth/login" banayega
-  signup: `${siteConfig.appUrl}/signup`,
+  login: `${siteConfig.appUrl}/auth/login`,           // ✅ Correct
+  signup: `${siteConfig.appUrl}/auth/signup`,         // 👈 FIX: /signup → /auth/signup
   dashboard: `${siteConfig.appUrl}/dashboard`,
-  forgotPassword: `${siteConfig.appUrl}/forgot-password`,
+  forgotPassword: `${siteConfig.appUrl}/auth/forgot-password`, // 👈 FIX: /auth/ bhi
   billing: `${siteConfig.appUrl}/billing`,
 } as const;
