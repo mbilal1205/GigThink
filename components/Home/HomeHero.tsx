@@ -126,7 +126,7 @@ export default function HeroSection() {
               variants={itemVariants}
               className="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-1"
             >
-              <Link href="/login">
+              <Link href="https://app.gigthink.comhttps://app.gigthink.com/auth/login">
                 <Button
                   size="lg"
                   className="h-14 px-8 rounded-xl text-base font-bold bg-foreground text-background hover:bg-foreground/90 shadow-lg shadow-foreground/10 transition-all hover:scale-[1.02] hover:shadow-xl"

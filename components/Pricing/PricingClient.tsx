@@ -73,7 +73,7 @@ export default function PricingClient() {
   /* ── Subscribe Handler (UNCHANGED) ── */
   const handleSubscribe = async (priceId: string) => {
     if (!user) {
-      router.push("/auth/login");
+      router.push("/authhttps://app.gigthink.comhttps://app.gigthink.com/auth/login");
       return;
     }
     if (!paddle) {

@@ -99,7 +99,7 @@ export default function Footer() {
                 Join 18,000+ freelancers who never miss a high-value lead.
               </p>
             </div>
-            <Link href="/auth/login">
+            <Link href="/authhttps://app.gigthink.comhttps://app.gigthink.com/auth/login">
               <Button
                 size="lg"
                 className="h-12 px-8 rounded-xl text-sm font-bold bg-foreground text-background hover:bg-foreground/90 shadow-lg transition-all hover:scale-[1.02] group shrink-0"

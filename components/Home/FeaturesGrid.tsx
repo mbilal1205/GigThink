@@ -194,7 +194,7 @@ export default function FeaturesGrid() {
                       transition={{ delay: i * 0.1, duration: 0.4 }}
                       className="border-r border-b border-border/15 bg-card/10 hover:bg-card/40 transition-all duration-500 relative group overflow-hidden"
                     >
-                      <Link href="/login" className="flex flex-col justify-between h-full p-5 sm:p-6 lg:p-7 gap-5 cursor-pointer min-h-[180px] sm:min-h-[190px]">
+                      <Link href="https://app.gigthink.comhttps://app.gigthink.com/auth/login" className="flex flex-col justify-between h-full p-5 sm:p-6 lg:p-7 gap-5 cursor-pointer min-h-[180px] sm:min-h-[190px]">
                         
                         {/* Hover Gradient Glow */}
                         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
@@ -263,7 +263,7 @@ export default function FeaturesGrid() {
 // ═══════════════════════════════════════════════════════════════
 function GridTile({ name, Icon }: { name: string; Icon: React.ElementType }) {
   return (
-    <Link href="/login" className="block h-full">
+    <Link href="https://app.gigthink.comhttps://app.gigthink.com/auth/login" className="block h-full">
       <div
         className="group relative p-3 sm:p-4 border-r border-b border-border/15 bg-card/5 hover:bg-card/80 hover:z-20 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover:border-primary/30 flex flex-col items-center justify-center text-center gap-2 cursor-pointer h-full min-h-[90px] sm:min-h-[95px]"
       >

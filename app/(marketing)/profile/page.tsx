@@ -44,7 +44,7 @@ export default function ProfilePage() {
       
       if (authError || !session || !session.user) {
         console.warn("⚠️ Session verification deferred or missing. Redirecting user to gateway...");
-        router.push("/login"); 
+        router.push("https://app.gigthink.comhttps://app.gigthink.com/auth/login"); 
         return;
       }
 
@@ -117,7 +117,7 @@ export default function ProfilePage() {
 
   const handleSignOut = async () => {
     await supabase.auth.signOut();
-    router.push("/login");
+    router.push("https://app.gigthink.comhttps://app.gigthink.com/auth/login");
   };
 
   if (loading) {
