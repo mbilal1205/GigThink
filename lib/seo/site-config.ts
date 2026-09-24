@@ -12,7 +12,7 @@ export const siteConfig = {
 
   // Platform URLs
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://gigthink.com",
-  appUrl: process.env.NEXT_PUBLIC_APP_URL ?? "https://gigthink.com",
+  appUrl: process.env.NEXT_PUBLIC_APP_URL ?? "https://app.gigthink.com", // 👈 Sahi separate subdomain handle karne ke liye app. ka hona zaroori hai
 
   // Locale & Discovery
   locale: "en_US",
@@ -58,14 +58,9 @@ export const siteConfig = {
 
 /** App subdomain redirect helpers */
 export const appRoutes = {
-  login: `${siteConfig.appUrl}/app.gigthink.com/auth/login`,
+  login: `${siteConfig.appUrl}/auth/login`, // 👈 Fixed: Ab yeh perfect format "https://app.gigthink.com/auth/login" banayega
   signup: `${siteConfig.appUrl}/signup`,
   dashboard: `${siteConfig.appUrl}/dashboard`,
   forgotPassword: `${siteConfig.appUrl}/forgot-password`,
   billing: `${siteConfig.appUrl}/billing`,
 } as const;
-
-
-
-
-// "google-site-verification=_6B9t8pjp5mrok5gIYnPSFKUxTmO_A0xDA4ZEA6sWy0"

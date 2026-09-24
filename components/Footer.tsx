@@ -99,7 +99,7 @@ export default function Footer() {
                 Join 18,000+ freelancers who never miss a high-value lead.
               </p>
             </div>
-            <Link href="/auth/app.gigthink.com/auth/login">
+            <Link href="https://app.gigthink.com/auth/login">
               <Button
                 size="lg"
                 className="h-12 px-8 rounded-xl text-sm font-bold bg-foreground text-background hover:bg-foreground/90 shadow-lg transition-all hover:scale-[1.02] group shrink-0"
@@ -263,7 +263,7 @@ export default function Footer() {
         <div className="container mx-auto max-w-[1400px] px-5 sm:px-6 lg:px-12 py-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
             <p className="text-xs text-muted-foreground">
-              Â© 2026 GigThink. All rights reserved.
+              Ã‚Â© 2026 GigThink. All rights reserved.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-5">
               {legalLinks.map((link) => (

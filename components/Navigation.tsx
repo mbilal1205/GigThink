@@ -309,7 +309,7 @@ export default function Navbar() {
           {/* Right: Actions */}
           <div className="hidden items-center gap-3 lg:flex">
   <Link
-    href="/app.gigthink.com/auth/login"
+    href="https://app.gigthink.com/auth/login"
     className="rounded-xl px-4 py-2 text-[14px] font-semibold text-foreground transition-colors hover:bg-muted/60"
   >
     Login
@@ -317,7 +317,7 @@ export default function Navbar() {
   
   {/* btn-gradient aur hover:opacity hata kar standard premium soft black implement kiya */}
   <Link
-    href="/app.gigthink.com/auth/signup"
+    href="https://app.gigthink.com/auth/signup"
     className="rounded-xl bg-neutral-900 px-5 py-2 text-[14px] font-bold text-white active:scale-95 hover:bg-neutral-800 transition-none"
   >
     Sign Up
@@ -429,7 +429,7 @@ export default function Navbar() {
               {/* Mobile CTA */}
               <div className="pt-4 space-y-3">
                 <Link
-                  href="/auth/app.gigthink.com/auth/login"
+                  href="https://app.gigthink.com/auth/login"
                   onClick={() => setMobileOpen(false)}
                   className="block text-center rounded-xl bg-muted py-3.5 text-[15px] font-bold text-foreground transition-colors hover:bg-muted/80"
                 >

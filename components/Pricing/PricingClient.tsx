@@ -21,7 +21,7 @@ export default function PricingClient() {
   const [checkingAuth, setCheckingAuth] = useState(true);
   const [isYearly, setIsYearly] = useState(false);
 
-  /* â”€â”€ Auth + Paddle Init (UNCHANGED) â”€â”€ */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Auth + Paddle Init (UNCHANGED) Ã¢â€â‚¬Ã¢â€â‚¬ */
   useEffect(() => {
     let isMounted = true;
 
@@ -70,10 +70,10 @@ export default function PricingClient() {
     };
   }, []);
 
-  /* â”€â”€ Subscribe Handler (UNCHANGED) â”€â”€ */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Subscribe Handler (UNCHANGED) Ã¢â€â‚¬Ã¢â€â‚¬ */
   const handleSubscribe = async (priceId: string) => {
     if (!user) {
-      router.push("/auth/app.gigthink.com/auth/login");
+      router.push("https://app.gigthink.com/auth/login");
       return;
     }
     if (!paddle) {
