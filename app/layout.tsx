@@ -16,6 +16,7 @@ import {
   websiteJsonLd,
   softwareAppJsonLd,
 } from "@/lib/seo/json-ld";
+import DevelopmentBanner from "@/components/Global/DevelopmentBanner";
 
 // ==========================================
 // 1. FONTS OPTIMIZATION
@@ -137,6 +138,7 @@ export default function RootLayout({
           <TooltipProvider>{children}</TooltipProvider>
           <Toaster richColors position="top-right" closeButton />
         </ThemeProvider>
+         <DevelopmentBanner/>
       </body>
     </html>
   );
