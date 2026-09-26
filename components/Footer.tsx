@@ -61,7 +61,7 @@ const footerLinks = {
 };
 
 const socialLinks = [
-  { icon: Globe, href: "#", label: "GitHub" },
+  { icon: Globe, href: "/", label: "GitHub" },
 ];
 
 const legalLinks = [
