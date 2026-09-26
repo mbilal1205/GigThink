@@ -4,7 +4,7 @@ import { LegalPageData } from "./types";
 
 export const securityData: LegalPageData = {
   title: "Security",
-  updatedDate: "January 2026",
+  updatedDate: "September 26, 2026",
   intro:
     "Security is a priority at GigThink. We implement reasonable measures to protect your information and maintain a secure platform.",
   sections: [

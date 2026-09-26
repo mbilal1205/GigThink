@@ -4,7 +4,7 @@ import { LegalPageData } from "./types";
 
 export const cookiesData: LegalPageData = {
   title: "Cookie Policy",
-  updatedDate: "January 2026",
+  updatedDate: "September 26, 2026",
   intro: "This Cookie Policy explains how GigThink uses cookies and similar technologies.",
   sections: [
     {

@@ -4,7 +4,7 @@ import { LegalPageData } from "./types";
 
 export const privacyData: LegalPageData = {
   title: "Privacy Policy",
-  updatedDate: "January 2026",
+  updatedDate: "September 26, 2026",
   intro:
     "This Privacy Policy explains how GigThink collects, uses, and protects information when you use our platform.",
   sections: [

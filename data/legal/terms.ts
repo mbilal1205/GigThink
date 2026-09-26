@@ -4,7 +4,7 @@ import { LegalPageData } from "./types";
 
 export const termsData: LegalPageData = {
   title: "Terms of Service",
-  updatedDate: "January 2026",
+  updatedDate: "September 26, 2026",
   intro:
     "These Terms of Service govern your use of GigThink. By creating an account, you agree to these terms.",
   sections: [
