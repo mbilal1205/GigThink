@@ -55,14 +55,12 @@ const footerLinks = {
     { label: "Help Center", href: "#" },
     { label: "Contact Us", href: "/contact" },
     { label: "Terms", href: "/terms" },
+    { label: "Refunds", href: "/refunds" },
     { label: "Security", href: "/security" },
     { label: "Privacy", href: "/privacy" },
   ],
 };
 
-const socialLinks = [
-  { icon: Globe, href: "/", label: "GitHub" },
-];
 
 const legalLinks = [
   { label: "Security", href: "/security" },
@@ -215,46 +213,6 @@ export default function Footer() {
       <div className="border-t border-border/30">
         <div className="container mx-auto max-w-[1400px] px-5 sm:px-6 lg:px-12 py-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            {/* Social Icons */}
-            <div className="flex items-center gap-1">
-              {socialLinks.map((social) => {
-                const Icon = social.icon;
-                return (
-                  <Link
-                    key={social.label}
-                    href={social.href}
-                    aria-label={social.label}
-                    className="w-9 h-9 rounded-lg flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/5 transition-all duration-200"
-                  >
-                    <Icon className="w-[18px] h-[18px]" />
-                  </Link>
-                );
-              })}
-            </div>
-
-            {/* Trust Badges */}
-            <div className="flex items-center gap-3 sm:gap-4">
-              {[
-                { label: "", sub: "CERTIFIED" },
-                { label: "", sub: "CERTIFIED" },
-                { label: "", sub: "COMPLIANT" },
-              ].map((badge) => (
-                <div
-                  key={badge.label}
-                  className="flex items-center gap-1.5 text-[10px] text-muted-foreground"
-                >
-                  <div className="w-5 h-5 rounded-full border border-border/60 flex items-center justify-center">
-                    <Sparkles className="w-2.5 h-2.5" />
-                  </div>
-                  <div className="leading-none">
-                    <span className="font-bold text-foreground block">
-                      {badge.label}
-                    </span>
-                    <span className="text-[9px]">{badge.sub}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </div>
